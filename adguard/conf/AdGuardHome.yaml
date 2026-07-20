@@ -182,6 +182,12 @@ filtering:
     - domain: netdata.lab-server
       answer: 192.168.15.23
       enabled: true
+    - domain: excalidraw.lab-server
+      answer: 192.168.15.23
+      enabled: true
+    - domain: rawio.lab-server
+      answer: 192.168.15.23
+      enabled: true
   safe_fs_patterns:
     - /opt/adguardhome/work/userfilters/*
   max_http_size: 256MB
