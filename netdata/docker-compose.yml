@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  netdata:
+    image: netdata/netdata
+    container_name: netdata
+    restart: unless-stopped
+    networks:
+      - web
+    volumes:
+      - netdataconfig:/etc/netdata
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.netdata.rule=Host(`netdata.lab-server`)"
+      - "traefik.http.routers.netdata.entrypoints=web"
+      - "traefik.http.services.netdata.loadbalancer.server.port=19999"
+
+networks:
+  web:
+    external: true
+
+volumes:
+  netdataconfig:
+  netdatalib:
+  netdatacache:

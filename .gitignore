@@ -1,0 +1,14 @@
+# Ignorar arquivos de ambiente (onde ficam suas senhas e chaves)
+.env
+*.env
+
+# Ignorar pastas de dados de containers (evita subir GBs de dados pro Git)
+**/data/
+**/db/
+**/logs/
+**/tmp/
+
+# Ignorar arquivos do sistema operacional ou backups temporários
+.DS_Store
+*~
+*.swp
