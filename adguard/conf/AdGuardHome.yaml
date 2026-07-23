@@ -182,10 +182,10 @@ filtering:
     - domain: netdata.lab-server
       answer: 192.168.15.23
       enabled: true
-    - domain: excalidraw.lab-server
+    - domain: drawio.lab-server
       answer: 192.168.15.23
       enabled: true
-    - domain: rawio.lab-server
+    - domain: it-tools.lab-server
       answer: 192.168.15.23
       enabled: true
   safe_fs_patterns:
