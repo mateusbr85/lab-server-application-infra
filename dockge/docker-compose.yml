@@ -1,0 +1,26 @@
+services:
+  dockge:
+    image: louislam/dockge:latest
+    container_name: dockge
+    restart: unless-stopped
+    volumes:
+      # Mapeamento do socket do Docker (Essencial para o Dockge gerenciar os containers)
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Dados internos do Dockge
+      - ./data:/app/data
+      # Diretório principal onde o Dockge vai ler e salvar seus arquivos docker-compose.yml
+      - /opt/docker:/opt/docker
+    environment:
+      # Diz ao Dockge onde procurar/salvar as stacks (projetos)
+      - DOCKGE_STACKS_DIR=/opt/docker
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dockge.rule=Host(`dockge.lab-server`)"
+      # A porta padrão interna do Dockge é a 5001
+      - "traefik.http.services.dockge.loadbalancer.server.port=5001"
+
+networks:
+  web:
+    external: true

@@ -1,0 +1,45 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+- Infraestrutura:
+    - AdGuard Home:
+        icon: adguard-home
+        href: http://adguard.lab-server
+        description: Servidor DNS e Bloqueio de Anúncios
+        server: my-docker     # Aponta para o nome criado no docker.yaml
+        container: adguardhome   # Nome exato do container no Docker
+        widget:
+            type: adguard
+            url: http://192.168.15.23:8080  # O IP e porta interna do AdGuard
+            username: Mateus      # Substitui pelo teu login do AdGuard
+            password: 8o@HnNJfn9v5Ek    # Substitui pela tua senha do AdGuard
+
+    - Dockge:
+        icon: dockge
+        href: http://dockge.lab-server
+        description: Gerenciador de Stacks
+        server: my-docker
+        container: dockge
+
+    - Traefik:
+        icon: traefik
+        href: http://traefik.lab-server
+        description: Proxy Reverso
+        server: my-docker
+        container: traefik
+
+- Ferramentas Dev:
+    - Draw.io:
+        icon: drawio
+        href: http://drawio.lab-server
+        description: Diagramas e Fluxogramas
+        server: my-docker
+        container: drawio
+
+    - IT-Tools:
+        icon: it-tools
+        href: http://it-tools.lab-server
+        description: Utilitários para Desenvolvedores
+        server: my-docker
+        container: it-tools
