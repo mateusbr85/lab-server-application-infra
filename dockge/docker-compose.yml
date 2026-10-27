@@ -9,10 +9,10 @@ services:
       # Dados internos do Dockge
       - ./data:/app/data
       # Diretório principal onde o Dockge vai ler e salvar seus arquivos docker-compose.yml
-      - /opt/docker:/opt/docker
+      - /opt/docker:/opt/lab-server-application
     environment:
       # Diz ao Dockge onde procurar/salvar as stacks (projetos)
-      - DOCKGE_STACKS_DIR=/opt/docker
+      - DOCKGE_STACKS_DIR=/opt/lab-server-application
     networks:
       - web
     labels:

@@ -3,15 +3,5 @@ services:
     image: jgraph/drawio:latest
     container_name: drawio
     restart: unless-stopped
-    networks:
-      - web
-    labels:
-      - "traefik.enable=true"
-      # Ajuste o host conforme sua preferência
-      - "traefik.http.routers.drawio.rule=Host(`drawio.lab-server`)"
-      - "traefik.http.routers.drawio.entrypoints=web"
-      - "traefik.http.services.drawio.loadbalancer.server.port=8080"
-
-networks:
-  web:
-    external: true
+    ports:
+      - "8081:8080"
